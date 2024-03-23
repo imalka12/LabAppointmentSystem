@@ -1,11 +1,11 @@
-package com.example.registrationlogindemo.service.impl;
+package com.example.labappointmentsystem.service.impl;
 
-import com.example.registrationlogindemo.dto.UserDto;
-import com.example.registrationlogindemo.entity.Role;
-import com.example.registrationlogindemo.entity.User;
-import com.example.registrationlogindemo.repository.RoleRepository;
-import com.example.registrationlogindemo.repository.UserRepository;
-import com.example.registrationlogindemo.service.UserService;
+import com.example.labappointmentsystem.dto.UserDto;
+import com.example.labappointmentsystem.entity.Role;
+import com.example.labappointmentsystem.entity.User;
+import com.example.labappointmentsystem.repository.RoleRepository;
+import com.example.labappointmentsystem.repository.UserRepository;
+import com.example.labappointmentsystem.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

@@ -1,11 +1,14 @@
-package com.example.registrationlogindemo.config;
+package com.example.labappointmentsystem.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,17 +23,25 @@ public class SpringSecurity {
     private UserDetailsService userDetailsService;
 
     @Bean
-    public static PasswordEncoder passwordEncoder(){
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable()
+        http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
                                 .requestMatchers("/index").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")
+                                .requestMatchers("/test/**").hasRole("ADMIN")
+                                .requestMatchers("/technician/**").hasRole("ADMIN")
+                                .requestMatchers(
+                                        "/assets/**",
+                                        "/js/**",
+                                        "/css/**"
+                                ).permitAll()
+                                .anyRequest().authenticated()
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")
@@ -50,5 +61,10 @@ public class SpringSecurity {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
+    }
+
+    @Bean
+    WebSecurityCustomizer configureWebSecurity() {
+        return (web) -> web.ignoring().requestMatchers("/resources/**", "/static/**", "/images/**", "/js/**", "/css/**", "/webjars/**");
     }
 }

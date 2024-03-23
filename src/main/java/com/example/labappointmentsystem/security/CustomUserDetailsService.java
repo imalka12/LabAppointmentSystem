@@ -1,8 +1,8 @@
-package com.example.registrationlogindemo.security;
+package com.example.labappointmentsystem.security;
 
-import com.example.registrationlogindemo.entity.Role;
-import com.example.registrationlogindemo.entity.User;
-import com.example.registrationlogindemo.repository.UserRepository;
+import com.example.labappointmentsystem.entity.Role;
+import com.example.labappointmentsystem.entity.User;
+import com.example.labappointmentsystem.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

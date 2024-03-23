@@ -1,4 +1,4 @@
-package com.example.registrationlogindemo.entity;
+package com.example.labappointmentsystem.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
