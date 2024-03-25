@@ -4,6 +4,7 @@
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
 
     <meta charset="utf-8" />
     <title>Register | Skote - Admin & Dashboard Template</title>
@@ -14,7 +15,58 @@
 </head>
 
 <body>
-<div class="account-pages my-3 pt-sm-3">
+<div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-end"> <!-- Changed justify-content-start to justify-content-between and justify-content-lg-end -->
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                <li>
+                    <a th:href="@{/index}" class="nav-link text-secondary">
+                        <i class="bi d-block mx-auto mb-1 fas fa-home fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/patient}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Register Patient
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Make Appointment
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/test}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-flask fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/technician}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user-md fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Technician
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/users}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Users
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-light d-flex align-items-center my-2 my-lg-0 ms-lg-auto">Logout</button>
+        </div>
+    </div>
+</div>
+<div class="my-5 pt-sm-3">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -27,19 +79,44 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name" id="name"
-                                       th:field="*{testName}">
+                                       th:field="*{testName}" placeholder="Enter lab test name">
                                 <p th:errors="*{testName}" class="text-danger" th:if="${#fields.hasErrors('testName')}">
                                 </p>
                             </div>
                             <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="form-control" name="description" id="description" cols="30" rows="2" placeholder="Description about test"></textarea>
+                            </div>
+                            <div class="mb-3">
                                 <label for="operator" class="form-label">Operator</label>
                                 <select class="form-select" id="operator" name="operator" th:field="*{operatorId}">
-                                    <option value="1">Piumi</option>
-                                    <option value="2">Imalka</option>
+                                    <option value="1">Imalka</option>
+                                    <option value="2">Piumi</option>
                                 </select>
                                 <p th:errors="*{operatorId}" class="text-danger"
                                    th:if="${#fields.hasErrors('operatorId')}">
                                 </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="amount" class="form-label">Amount</label>
+                                        <input type="number" class="form-control" name="amount" id="amount"
+                                               th:field="*{testName}" placeholder="0.00">
+                                        <p th:errors="*{testName}" class="text-danger" th:if="${#fields.hasErrors('testName')}">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-3">
+                                        <label for="status" class="form-label">Amount</label>
+                                        <select class="form-select" id="status" name="status" th:field="*{operatorId}">
+                                            <option value="1">Availble</option>
+                                            <option value="2">Not Available</option>
+                                        </select>
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                             <button class="btn btn-primary col-4" type="submit">Add</button>
                         </form>
@@ -48,16 +125,68 @@
             </div>
             <div class="col-lg-8">
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body" style="max-height: 600px; overflow-y: auto;">
                         <table class="table table-striped table-hover">
                             <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Test Name</th>
+                                <th>Description</th>
                                 <th>Operator</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Complete Blood Count (CBC)</td>
+                                <td>A CBC is a common blood test that provides information about the cells in the blood, including red blood cells, white blood cells, and platelets. It helps diagnose various conditions such as anemia, infections, and blood disorders.</td>
+                                <td>Imalka</td>
+                                <td>Rs.10000.00</td>
+                                <td>Available</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Thyroid Function Test</td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td>Rs.9500.00</td>
+                                <td>Available</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Blood Glucose Test</td>
+                                <td>This test measures the amount of glucose (sugar) in the bloodstream and is used to diagnose diabetes and monitor blood sugar levels in individuals with diabetes. It helps in managing diabetes effectively.</td>
+                                <td>Ishan</td>
+                                <td>Rs.8000.00</td>
+                                <td>Not-Available</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Kidney Function Test</td>
+                                <td>This test evaluates kidney function by measuring levels of waste products such as creatinine and blood urea nitrogen (BUN) in the blood. It assists in diagnosing kidney diseases and monitoring kidney function.</td>
+                                <td>Ishan</td>
+                                <td>Rs.15000.00</td>
+                                <td>Available</td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -66,7 +195,9 @@
         </div>
     </div>
 </div>
-
+<footer class="py-3 mt-3 bg-dark">
+    <div class="container px-3"><p class="m-0 text-center text-white">Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.</p></div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 </script>

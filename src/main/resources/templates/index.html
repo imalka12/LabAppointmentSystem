@@ -9,30 +9,166 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Registration and Login System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+<div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-end"> <!-- Changed justify-content-start to justify-content-between and justify-content-lg-end -->
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                <li>
+                    <a th:href="@{/index}" class="nav-link text-secondary">
+                        <i class="bi d-block mx-auto mb-1 fas fa-home fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/login}">Login</a>
+                <li>
+                    <a th:href="@{/patient}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Register Patient
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Make Appointment
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/test}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-flask fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/technician}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user-md fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Technician
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/test-report}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/users}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Users
+                    </a>
                 </li>
             </ul>
+            <button class="btn btn-outline-light d-flex align-items-center my-2 my-lg-0 ms-lg-auto">Logout</button>
         </div>
     </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <h1 class="text-center"> Welcome to Registration and Login System </h1>
-    </div>
 </div>
+        <header class="bg-dark">
+            <div class="container">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">ABC Laboratories</h1>
+                            <p class="lead text-white-50 mb-4">View your all lab reports in few steps!</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">View Reports</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+<section class="py-1 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-6">
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <h2 class="h4 fw-bolder">About Our Company</h2>
+                <p>ABC Laboratories is a leading provider of medical testing services, catering to patients who require a wide range of diagnostic tests. With a commitment to excellence and patient satisfaction, we strive to deliver accurate results in a timely manner.</p>
+                <p>Our team comprises highly skilled technicians and cutting-edge testing machines, all dedicated to delivering accurate and reliable results for our clients. Whether you require medical testing, diagnostic services, or laboratory analysis, we possess the expertise and state-of-the-art equipment to assist you.</p>
+                <p>With our state-of-the-art Lab Appointment System, we're revolutionizing the way patients easily schedule appointments and access their medical records.</p>
+                <a class="text-decoration-none" href="#!">
+                    Learn More
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/005/607/850/small_2x/a-scientist-working-in-a-lab-male-character-doing-a-microscope-experiment-illustration-in-flat-style-free-vector.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-light py-1">
+    <div class="container px-5 my-5 px-5">
+        <div class="text-center mb-5">
+            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+            <h2 class="fw-bolder">Get in touch</h2>
+            <p class="lead mb-0">We'd love to hear from you</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-6">
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- * * SB Forms Contact Form * *-->
+                <!-- * * * * * * * * * * * * * * *-->
+                <!-- This form is pre-integrated with SB Forms.-->
+                <!-- To make this form functional, sign up at-->
+                <!-- https://startbootstrap.com/solution/contact-forms-->
+                <!-- to get an API token!-->
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <!-- Name input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Full name</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                    </div>
+                    <!-- Email address input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email address</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                    </div>
+                    <!-- Phone number input-->
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Phone number</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                    </div>
+                    <!-- Message input-->
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Message</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                    </div>
+                    <!-- Submit success message-->
+                    <!---->
+                    <!-- This is what your users will see when the form-->
+                    <!-- has successfully submitted-->
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Form submission successful!</div>
+                            To activate this form, sign up at
+                            <br />
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
+                    </div>
+                    <!-- Submit error message-->
+                    <!---->
+                    <!-- This is what your users will see when there is-->
+                    <!-- an error submitting the form-->
+                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    <!-- Submit Button-->
+                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="py-3 bg-dark">
+    <div class="container px-3"><p class="m-0 text-center text-white">Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.</p></div>
+</footer>
 </body>
 </html>

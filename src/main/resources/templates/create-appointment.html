@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
+    <meta charset="utf-8" />
+    <title>Register | Skote - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+</head>
+
+<body>
+<div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-end"> <!-- Changed justify-content-start to justify-content-between and justify-content-lg-end -->
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                <li>
+                    <a th:href="@{/index}" class="nav-link text-secondary">
+                        <i class="bi d-block mx-auto mb-1 fas fa-home fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/patient}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Register Patient
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Make Appointment
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/test}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-flask fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/technician}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user-md fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Technician
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/users}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Users
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-outline-light d-flex align-items-center my-2 my-lg-0 ms-lg-auto">Logout</button>
+        </div>
+    </div>
+</div>
+<div class="my-3 pt-sm-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-primary">
+                    <div class="card-header">Add appointment</div>
+                    <div class="card-body">
+                        <p>Fields with <span class="text-danger">*</span> are required.</p>
+                        <form th:action="@{/appointment/save}" class="mt-3" method="post"  th:object="${appointment}">
+                            <div class="row">
+                                <div class="col-lg-6 mb-2">
+                                    <label for="patient" class="form-label">Patient<span
+                                            class="required-label text-danger">*</span></label>
+                                    <select class="form-control" id="patient" name="patient">
+                                        <option value="">Select Patient</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 mb-2">
+                                    <label for="doctor" class="form-label">Docotr who recommended the test</label>
+                                    <input type="text" class="form-control" id="doctor" name="doctor"
+                                           placeholder="Enter doctor name">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        <div class="col-lg-6 mb-2">
+                                            <label for="appdate" class="form-label">Appointment Date<span
+                                                    class="required-label text-danger">*</span></label>
+                                            <input type="date" class="form-control" id="appdate" name="appdate">
+                                        </div>
+                                        <div class="col-lg-6 mb-2">
+                                            <label for="apptime" class="form-label">Appointment Time<span
+                                                    class="required-label text-danger">*</span></label>
+                                            <input type="time" class="form-control" id="apptime" name="apptime">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6"></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="card border border-success mt-3">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <div class="card mt-3 mb-3">
+                                                <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                                                    <table class="table table-striped table-hover" id="testTable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>Test Name</th>
+                                                            <th>Description</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Complete Blood Count (CBC)</td>
+                                                            <td>A CBC is a common blood test that provides information about the cells in the blood, including red blood cells, white blood cells, and platelets. It helps diagnose various conditions such as anemia, infections, and blood disorders.</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-success btn-icon" title="Add Task"><i class="fas fa-plus"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Thyroid Function Test</td>
+                                                            <td>N/A</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-success btn-icon" title="Add Task"><i class="fas fa-plus"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Blood Glucose Test</td>
+                                                            <td>This test measures the amount of glucose (sugar) in the bloodstream and is used to diagnose diabetes and monitor blood sugar levels in individuals with diabetes. It helps in managing diabetes effectively.</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-success btn-icon" title="Add Task"><i class="fas fa-plus"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td>Kidney Function Test</td>
+                                                            <td>This test evaluates kidney function by measuring levels of waste products such as creatinine and blood urea nitrogen (BUN) in the blood. It assists in diagnosing kidney diseases and monitoring kidney function.</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-success btn-icon" title="Add Task"><i class="fas fa-plus"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="card mt-3 mb-3">
+                                                <div class="card-header">
+                                                    Selected Test
+                                                </div>
+                                                <div class="card-body">
+                                                    <table class="table table-striped table-hover">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Blood Glucose Test</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-danger btn-icon" title="Add Task"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Kidney Function Test</td>
+                                                            <td>
+                                                                <button type="button" id="" class="btn btn-sm btn-danger btn-icon" title="Add Task"><i class="fas fa-trash"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="mb-2">
+                                        <label for="status" class="form-label">Status</label>
+                                        <select class="form-control" id="status" name="status">
+                                            <option value="">Select Status</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary float-end">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="py-3 bg-dark">
+    <div class="container px-3"><p class="m-0 text-center text-white">Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.</p></div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script >
+    $(document).ready(function() {
+        $('#testTable').DataTable();
+    });
+</script>
+</body>
+</html>

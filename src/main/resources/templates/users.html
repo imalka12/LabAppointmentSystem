@@ -9,46 +9,201 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Registration and Login System</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Register</a>
+<div class="px-3 py-2 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-end"> <!-- Changed justify-content-start to justify-content-between and justify-content-lg-end -->
+            <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                <li>
+                    <a th:href="@{/index}" class="nav-link text-secondary">
+                        <i class="bi d-block mx-auto mb-1 fas fa-home fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Home
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                <li>
+                    <a th:href="@{/patient}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Register Patient
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Make Appointment
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/test}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-flask fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/technician}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user-md fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Technician
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/users}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Users
+                    </a>
                 </li>
             </ul>
+            <button class="btn btn-outline-light d-flex align-items-center my-2 my-lg-0 ms-lg-auto">Logout</button>
         </div>
     </div>
-</nav>
+</div>
+<div class="my-3 pt-sm-3">
 <div class="container">
     <div class="row">
-        <h1> Registered Users </h1>
+        <div class="col-lg-7">
+            <div class="card border border-primary">
+                <div class="card-header">
+                    Patients
+                </div>
+                <div class="card-body" style="overflow-x: auto; overflow-y: auto; max-height: 600px;">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th style="width: 10px;">Email</th>
+                            <th>Telephone</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>A.B. Wijekoon</td>
+                            <td>wijekoon123@gmail.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Sachini</td>
+                            <td>sachini@gmail.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Uthpala</td>
+                            <td>uthpala@gmail.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Samadhi</td>
+                            <td>samadhi@gmail.com</td>
+                            <td>N/A</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Emily Brown</td>
+                            <td>emilybrown@example.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>David Lee</td>
+                            <td>davidlee@example.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Michelle Garcia</td>
+                            <td>michellegarcia@example.com</td>
+                            <td>N/A</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Christopher Martinez</td>
+                            <td>christophermartinez@example.com</td>
+                            <td>0771234567</td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="card border border-primary">
+                <div class="card-header">
+                    Administrators
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user: ${users}">
+                            <td th:text="${user.firstName}"></td>
+                            <td th:text="${user.lastName}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td>
+                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <table class="table table-striped table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="user: ${users}">
-                <td th:text="${user.firstName}"></td>
-                <td th:text="${user.lastName}"></td>
-                <td th:text="${user.email}"></td>
-            </tr>
-        </tbody>
-    </table>
+
 </div>
+</div>
+<footer class="py-3 bg-dark">
+    <div class="container px-3"><p class="m-0 text-center text-white">Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.</p></div>
+</footer>
 </body>
 </html>

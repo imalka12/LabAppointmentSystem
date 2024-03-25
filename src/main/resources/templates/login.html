@@ -33,6 +33,8 @@
                      class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/004/820/808/small/laboratory-microscope-with-capsule-and-medical-health-free-vector.jpg" alt="">
+                <p class="text-primary fw-bold" style="font-size: 25px;">Welcome to ABC Laboratories!</p>
                 <div th:if="${param.error}">
                     <div class="alert alert-danger">Invalid Email and Password.</div>
                 </div>
@@ -80,10 +82,12 @@
             </div>
         </div>
     </div>
-    <div class="d-flex flex-column flex-row text-center justify-content-between py-4 px-4 px-xl-5 bg-primary">
+    <div class="d-flex flex-column flex-row text-center justify-content-between py-2 px-2 px-xl-5 bg-primary" style="margin-top: 20px;">
         <!-- Copyright -->
         <div class="text-white mb-3 mb-md-0">
-            Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span>. All rights reserved.
+            <p>
+                Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.
+            </p>
         </div>
     </div>
 </section>

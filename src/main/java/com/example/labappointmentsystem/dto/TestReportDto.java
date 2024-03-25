@@ -10,14 +10,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AppointmentDto {
+public class TestReportDto {
     private Long id;
     @NotEmpty
-    private String firstName;
-    private String lastName;
-    private String email;
-    @NotEmpty
-    private String telephone;
-    private String address;
-    private String patientId;
+    private long appointmentId;
 }

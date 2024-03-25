@@ -4,7 +4,9 @@ import com.example.labappointmentsystem.dto.TechnicianDto;
 import com.example.labappointmentsystem.entity.Technician;
 import com.example.labappointmentsystem.repository.TechnicianRepository;
 import com.example.labappointmentsystem.service.TechnicianService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TechnicianServiceImpl implements TechnicianService {
     TechnicianRepository technicianRepository;
 

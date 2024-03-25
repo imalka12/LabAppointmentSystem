@@ -36,6 +36,8 @@ public class SpringSecurity {
                                 .requestMatchers("/users").hasRole("ADMIN")
                                 .requestMatchers("/test/**").hasRole("ADMIN")
                                 .requestMatchers("/technician/**").hasRole("ADMIN")
+                                .requestMatchers("/appointment/**").hasRole("ADMIN")
+                                .requestMatchers("/test-report/**").hasRole("ADMIN")
                                 .requestMatchers(
                                         "/assets/**",
                                         "/js/**",

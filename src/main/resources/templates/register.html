@@ -20,15 +20,15 @@
             <div class="col-md-8 col-lg-6 col-xl-5">
                 <div th:if="${param.success}">
                     <div class="alert alert-info">You've successfully registered
-                        to our app!</div>
+                        to our system!</div>
                 </div>
                 <div class="card overflow-hidden">
                     <div class="bg-soft">
                         <div class="row">
                             <div class="col-7">
                                 <div class="text-primary p-4">
-                                    <h5 class="text-primary">Free Register</h5>
-                                    <p>Get your free Skote account now.</p>
+                                    <h5 class="text-primary fw-bold">Registration</h5>
+                                    <p>Your are connecting with ABC Laboratories!</p>
                                 </div>
                             </div>
                             <div class="col-5 align-self-end">
@@ -89,10 +89,7 @@
 
                     <div>
                         <p>Already have an account ? <a href="/" th:href="@{/login}">Login</a></p>
-                        <p>©
-                            <span th:text="${#dates.year(#dates.createNow())}"></span> Skote. Crafted with <i
-                                    class="mdi mdi-heart text-danger"></i>
-                            by Themesbrand
+                        <p>Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.
                         </p>
                     </div>
                 </div>

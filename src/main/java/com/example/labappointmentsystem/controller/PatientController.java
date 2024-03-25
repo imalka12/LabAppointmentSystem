@@ -3,12 +3,14 @@ package com.example.labappointmentsystem.controller;
 import com.example.labappointmentsystem.dto.PatientDto;
 import com.example.labappointmentsystem.entity.Patient;
 import com.example.labappointmentsystem.service.PatientService;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+@Controller
 public class PatientController {
     private PatientService patientService;
 

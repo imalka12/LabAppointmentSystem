@@ -4,7 +4,9 @@ import com.example.labappointmentsystem.dto.PatientDto;
 import com.example.labappointmentsystem.entity.Patient;
 import com.example.labappointmentsystem.repository.PatientRepository;
 import com.example.labappointmentsystem.service.PatientService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PatientServiceImpl implements PatientService {
     PatientRepository patientRepository;
 

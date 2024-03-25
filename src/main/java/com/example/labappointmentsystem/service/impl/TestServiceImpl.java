@@ -4,9 +4,11 @@ import com.example.labappointmentsystem.dto.TestDto;
 import com.example.labappointmentsystem.entity.Test;
 import com.example.labappointmentsystem.repository.TestRepository;
 import com.example.labappointmentsystem.service.TestService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TestServiceImpl implements TestService {
     TestRepository testRepository;
 

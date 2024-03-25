@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class TechnicianController {
-    private TechnicianService technicianService;
+    private final TechnicianService technicianService;
 
     public TechnicianController(TechnicianService technicianService){
         this.technicianService = technicianService;
