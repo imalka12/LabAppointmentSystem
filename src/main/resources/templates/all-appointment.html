@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Registration and Login System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
+    <meta charset="utf-8" />
+    <title>Register | Lab Appointment System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
 </head>
+
 <body>
 <div class="px-3 py-2 bg-dark text-white">
     <div class="container">
@@ -70,76 +72,54 @@
     </div>
 </div>
 <div class="my-3 pt-sm-3">
-<div class="container">
-    <div class="row">
-        <div class="col-lg-7">
-            <div class="card border border-primary">
-                <div class="card-header">
-                    Patients
-                </div>
-                <div class="card-body" style="overflow-x: auto; overflow-y: auto; max-height: 600px;">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th style="width: 10px;">Email</th>
-                            <th>Telephone</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="patient: ${patients}">
-                            <td th:text="${patient.id}"></td>
-                            <td th:text="${patient.firstName}"></td>
-                            <td th:text="${patient.email}"></td>
-                            <td th:text="${patient.telephone}"></td>
-                            <td>
-                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
-                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5">
-            <div class="card border border-primary">
-                <div class="card-header">
-                    Administrators
-                </div>
-                <div class="card-body">
-                    <table class="table table-striped table-bordered table-hover">
-                        <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="user: ${users}">
-                            <td th:text="${user.firstName}"></td>
-                            <td th:text="${user.lastName}"></td>
-                            <td th:text="${user.email}"></td>
-                            <td>
-                                <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
-                                <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Patient</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Telephone</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="appointment: ${appointments}">
+                                <td th:text="${appointment.id}"></td>
+                                <td th:text="${appointment.patientId}"></td>
+                                <td th:text="${appointment.appointmentDate}"></td>
+                                <td th:text="${appointment.appointmentTime}"></td>
+                                <td></td>
+                                <td th:text="${appointment.status}"></td>
+                                <td>
+                                    <a href="" class="btn btn-sm btn-success d-inline">View</a>
+                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
+                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-</div>
-<footer class="py-3 bg-dark">
+<footer class="py-3 bg-dark" style="margin-top: 220px;">
     <div class="container px-3"><p class="m-0 text-center text-white">Copyright © <span th:text="${#dates.year(#dates.createNow())}"></span> ABC Labarotories. All rights reserved.</p></div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
+<script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script>
+</script>
 </body>
 </html>

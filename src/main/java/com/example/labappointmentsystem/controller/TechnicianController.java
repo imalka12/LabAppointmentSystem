@@ -1,6 +1,7 @@
 package com.example.labappointmentsystem.controller;
 
 import com.example.labappointmentsystem.dto.TechnicianDto;
+import com.example.labappointmentsystem.dto.TestDto;
 import com.example.labappointmentsystem.entity.Technician;
 import com.example.labappointmentsystem.service.TechnicianService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 @Controller
 public class TechnicianController {
@@ -35,5 +38,12 @@ public class TechnicianController {
         technicianService.saveTechnician(technicianDto);
 
         return "redirect:/technician?name=" + technician.getName();
+    }
+
+    @GetMapping("/create-technician")
+    public String listTechnicians(Model model){
+        List<TechnicianDto> technicians = technicianService.findAlltechnicians();
+        model.addAttribute("technicians", technicians);
+        return "create-technician";
     }
 }

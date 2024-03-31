@@ -10,5 +10,5 @@ public interface TestService {
 
     Test findByOperatorId(String email);
 
-    List<TestDto> findAllTests();
+    List<TestDto> findeAlltests();
 }

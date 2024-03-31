@@ -6,7 +6,7 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <meta charset="utf-8" />
-    <title>Register | Skote - Admin & Dashboard Template</title>
+    <title>Register | Lab Appointment System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -48,9 +48,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a th:href="@{/test-report}" class="nav-link text-white">
                         <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
                         Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/all-appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Appointments
                     </a>
                 </li>
                 <li>
@@ -102,25 +108,27 @@
                                     <label for="address" class="form-label">Address Line 1</label>
                                     <input type="text" class="form-control" id="address"
                                            name="address" placeholder="Enter your address"
-                                           th:field="*{address}">
-                                    <p th:errors="*{address}" class="text-danger"
-                                       th:if="${#fields.hasErrors('address')}">
+                                           th:field="*{address1}">
+                                    <p th:errors="*{address1}" class="text-danger"
+                                       th:if="${#fields.hasErrors('address1')}">
                                     </p>
                                 </div>
 
                                 <div class="col-lg-6 mb-2">
-                                    <label for="" class="form-label">Address Line
+                                    <label for="address2" class="form-label">Address Line
                                         2</label>
-                                    <input type="text" class="form-control" id=""
-                                           name="" placeholder="Enter your address line 2 (optional)">
+                                    <input type="text" class="form-control" id="address2"
+                                           name=address2"" placeholder="Enter your address line 2 (optional)" th:field="*{address2}">
+                                    <p th:errors="*{address2}" class="text-danger"
+                                       th:if="${#fields.hasErrors('address2')}">
                                     </p>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-2">
-                                        <label for="" class="form-label">City</label>
-                                        <select class="form-control" id="city" name="">
+                                        <label for="city" class="form-label">City</label>
+                                        <select class="form-control" id="city" name="city" th:field="*{city}">
                                             <option value="">Select your city</option>
                                         </select>
                                     </div>

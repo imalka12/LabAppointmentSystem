@@ -21,6 +21,10 @@ public class Test {
     @Column(name = "test_name", nullable = false)
     private String testName;
 
+    private String description;
+    private Double amount;
+    private Long status;
+
     @NotNull
     @Column(name = "operator_id", nullable = false)
     private Long operatorId;

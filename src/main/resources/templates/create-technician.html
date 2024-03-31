@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
 
     <meta charset="utf-8" />
-    <title>Register | Skote - Admin & Dashboard Template</title>
+    <title>Register | Lab Appointment System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -49,9 +49,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a th:href="@{/test-report}" class="nav-link text-white">
                         <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
                         Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/all-appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Appointments
                     </a>
                 </li>
                 <li>
@@ -130,31 +136,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Imalka</td>
-                                <td>0771234567</td>
-                                <td>imalka@gmail.com</td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
-                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Piumi</td>
-                                <td>0771111111</td>
-                                <td>piumi@gmail.com</td>
-                                <td>
-                                    <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
-                                    <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Ishan</td>
-                                <td>0711234567</td>
-                                <td>ishan@gmail.com</td>
+                            <tr th:each="test: ${technicians}">
+                                <td th:text="${technician.id}"></td>
+                                <td th:text="${technician.name}"></td>
+                                <td th:text="${technician.telephone}"></td>
+                                <td th:text="${technician.email}"></td>
                                 <td>
                                     <a href="" class="btn btn-sm btn-primary d-inline">Edit</a>
                                     <button type="submit" class="my-2 btn btn-sm btn-danger d-inline">Delete</button>

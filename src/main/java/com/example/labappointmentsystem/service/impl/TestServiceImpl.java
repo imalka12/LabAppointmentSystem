@@ -7,10 +7,11 @@ import com.example.labappointmentsystem.service.TestService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TestServiceImpl implements TestService {
-    TestRepository testRepository;
+    private TestRepository testRepository;
 
     public TestServiceImpl(TestRepository testRepository) {
         this.testRepository = testRepository;
@@ -24,7 +25,9 @@ public class TestServiceImpl implements TestService {
         Test test = new Test();
         test.setTestName(testDto.getTestName());
         test.setOperatorId(testDto.getOperatorId());
-
+        test.setDescription(testDto.getDescription());
+        test.setStatus(testDto.getStatus());
+        test.setAmount(testDto.getAmount());
         testRepository.save(test);
     }
 
@@ -41,7 +44,19 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public List<TestDto> findAllTests() {
-        return null;
+    public List<TestDto> findeAlltests() {
+        List<Test> tests = testRepository.findAll();
+        return  tests.stream().map((test) -> convertEntityToDto(test)).collect(Collectors.toList());
     }
+
+    private TestDto convertEntityToDto(Test test){
+        TestDto testDto = new TestDto();
+        testDto.setTestName(test.getTestName());
+        testDto.setOperatorId(test.getOperatorId());
+        testDto.setDescription(test.getDescription());
+        testDto.setStatus(test.getStatus());
+        testDto.setAmount(testDto.getAmount());
+        return testDto;
+    }
+
 }

@@ -16,4 +16,8 @@ public class TestDto {
     private String testName;
     @NotEmpty
     private Long operatorId;
+
+    private String description;
+    private Double amount;
+    private Long status;
 }

@@ -19,9 +19,9 @@ public class Appointment {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NotNull
-    @Column(name = "patient_id", nullable = false)
-    private Long patientId;
+//    @NotNull
+//    @Column(name = "patient_id", nullable = false)
+//    private Long patientId;
 
     @NotNull
     @Column(name = "appointment_date", nullable = false)
@@ -43,4 +43,15 @@ public class Appointment {
     @Column(name = "doctor_name", nullable = false)
     private String doctorName;
 
+//    @ManyToOne
+//    @JoinTable(
+//            name = "patients",
+//            joinColumns = @JoinColumn(name = "patient_id"),
+//            inverseJoinColumns = @JoinColumn(name = "id")
+//    )
+//    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
 }

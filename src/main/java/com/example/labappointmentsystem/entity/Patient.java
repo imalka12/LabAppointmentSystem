@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -34,11 +37,29 @@ public class Patient {
     private String telephone;
 
     @Size(max = 255)
-    @Column(name = "address")
-    private String address;
+    @Column(name = "address1")
+    private String address1;
+
+    @Size(max = 255)
+    @Column(name = "address2")
+    private String address2;
+
+    @Size(max = 255)
+    @Column(name = "city")
+    private String city;
 
     @Size(max = 40)
     @Column(name = "patient_id", length = 40)
     private String patientId;
 
+//    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+//    @JoinTable(
+//            name = "appointments",
+//            joinColumns = @JoinColumn(name = "id"),
+//            inverseJoinColumns = @JoinColumn(name = "patient_id")
+//    )
+//    private List<Appointment> appointments = new ArrayList<Appointment>();
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    private List<Appointment> appointments = new ArrayList<>();
 }

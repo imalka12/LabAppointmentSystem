@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.dataTables.min.css">
     <meta charset="utf-8" />
-    <title>Register | Skote - Admin & Dashboard Template</title>
+    <title>Register | Lab Appointment System</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -24,18 +24,18 @@
                         Home
                     </a>
                 </li>
-                <li>
-                    <a th:href="@{/patient}" class="nav-link text-white">
-                        <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
-                        Register Patient
-                    </a>
-                </li>
-                <li>
-                    <a th:href="@{/appointment}" class="nav-link text-white">
-                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
-                        Make Appointment
-                    </a>
-                </li>
+                    <li>
+                        <a th:href="@{/patient}" class="nav-link text-white">
+                            <i class="bi d-block mx-auto mb-1 fas fa-user fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                            Register Patient
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/appointment}" class="nav-link text-white">
+                            <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                            Make Appointment
+                        </a>
+                    </li>
                 <li>
                     <a th:href="@{/test}" class="nav-link text-white">
                         <i class="bi d-block mx-auto mb-1 fas fa-flask fa-lg" style="color: white; width: 24px; height: 24px;"></i>
@@ -49,9 +49,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a th:href="@{/test-report}" class="nav-link text-white">
                         <i class="bi d-block mx-auto mb-1 fas fa-file-alt fa-lg" style="color: white; width: 24px; height: 24px;"></i>
                         Test Reports
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/all-appointment}" class="nav-link text-white">
+                        <i class="bi d-block mx-auto mb-1 fas fa-calendar-check fa-lg" style="color: white; width: 24px; height: 24px;"></i>
+                        Appointments
                     </a>
                 </li>
                 <li>

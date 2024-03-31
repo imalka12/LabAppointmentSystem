@@ -1,6 +1,7 @@
 package com.example.labappointmentsystem.controller;
 
 import com.example.labappointmentsystem.dto.PatientDto;
+import com.example.labappointmentsystem.dto.TestDto;
 import com.example.labappointmentsystem.entity.Patient;
 import com.example.labappointmentsystem.service.PatientService;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 @Controller
 public class PatientController {
@@ -32,10 +35,19 @@ public class PatientController {
         patientDto.setLastName(patient.getLastName());
         patientDto.setEmail(patient.getEmail());
         patientDto.setTelephone(patient.getTelephone());
-        patientDto.setAddress(patient.getAddress());
+        patientDto.setAddress1(patient.getAddress1());
+        patientDto.setAddress2(patient.getAddress2());
+        patientDto.setCity(patient.getCity());
         patientDto.setPatientId(patient.getPatientId());
         patientService.savePatient(patientDto);
 
-        return "redirect:/test?name=" + patient.getFirstName() + "&lastname=" + patient.getLastName();
+        return "redirect:/patient?name=" + patient.getFirstName() + "&lastname=" + patient.getLastName();
     }
+
+//    @GetMapping("/users")
+//    public String listPatients(Model model){
+//        List<PatientDto> patients = patientService.findAllPatients();
+//        model.addAttribute("patients", patients);
+//        return "users";
+//    }
 }
